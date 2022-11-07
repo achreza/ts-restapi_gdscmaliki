@@ -2,6 +2,17 @@ import { RequestHandler } from "express";
 
 import { Events } from "../models/event";
 
+const multer = require("multer");
+
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "./uploads");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   },
+// });
+
 export const createEvent: RequestHandler = async (req, res, next) => {
   var event = await Events.create({ ...req.body });
   return res.status(200).json({ success: true, message: "event created successfully", data: event });
@@ -18,7 +29,7 @@ export const deleteEvent: RequestHandler = async (req, res, next) => {
 
 export const getAllEvents: RequestHandler = async (req, res, next) => {
   const event = await Events.findAll();
-  return res.status(200).json({ message: "event Fetched Successfully", data: event });
+  return res.status(200).json({ message: "Events Fetched Successfully", data: event });
 };
 
 export const geteventById: RequestHandler = async (req, res, next) => {

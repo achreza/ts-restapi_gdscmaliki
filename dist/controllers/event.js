@@ -11,6 +11,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateEvent = exports.geteventById = exports.getAllEvents = exports.deleteEvent = exports.createEvent = void 0;
 const event_1 = require("../models/event");
+const multer = require("multer");
+// const storage = multer.diskStorage({
+//   destination: function (req, file, cb) {
+//     cb(null, "./uploads");
+//   },
+//   filename: function (req, file, cb) {
+//     cb(null, file.originalname);
+//   },
+// });
 const createEvent = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     var event = yield event_1.Events.create(Object.assign({}, req.body));
     return res.status(200).json({ success: true, message: "event created successfully", data: event });

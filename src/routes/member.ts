@@ -7,7 +7,7 @@ const router = Router();
 router.post("/", createMember);
 router.get("/", getAllMembers);
 router.get("/:id", getMemberById);
-router.put("/:id", updateMember);
+router.patch("/:id", updateMember);
 router.delete("/:id", deleteMember);
 
 export default router;

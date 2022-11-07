@@ -25,7 +25,7 @@ const deleteMember = (req, res, next) => __awaiter(void 0, void 0, void 0, funct
 exports.deleteMember = deleteMember;
 const getAllMembers = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const member = yield member_1.Members.findAll();
-    return res.status(200).json({ message: "Member Fetched Successfully", data: member });
+    return res.status(200).json({ success: true, message: "Member Fetched Successfully", data: member });
 });
 exports.getAllMembers = getAllMembers;
 const getMemberById = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {

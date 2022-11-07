@@ -13,6 +13,8 @@ app.use((0, body_parser_1.json)());
 app.use((0, body_parser_1.urlencoded)({ extended: true }));
 app.use("/member", member_1.default);
 app.use("/event", event_1.default);
+//routes
+require("./routes/images")(app);
 app.use((err, req, res, next) => {
     res.status(500).json({ message: err.message });
 });

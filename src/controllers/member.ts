@@ -18,7 +18,7 @@ export const deleteMember: RequestHandler = async (req, res, next) => {
 
 export const getAllMembers: RequestHandler = async (req, res, next) => {
   const member = await Members.findAll();
-  return res.status(200).json({ message: "Member Fetched Successfully", data: member });
+  return res.status(200).json({ success: true, message: "Member Fetched Successfully", data: member });
 };
 
 export const getMemberById: RequestHandler = async (req, res, next) => {
@@ -31,5 +31,6 @@ export const updateMember: RequestHandler = async (req, res, next) => {
   const { id } = req.params;
   await Members.update({ ...req.body }, { where: { id } });
   const updatedMembers: Members | null = await Members.findByPk(id);
+
   return res.status(200).json({ message: "Member Updated Successfully", data: updatedMembers });
 };
