@@ -1,1 +1,1 @@
-# ts-restapi_gdscmaliki
+Rest api for GDSC MALIKI App
